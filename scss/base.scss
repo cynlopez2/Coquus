@@ -1,0 +1,318 @@
+@import "./variables.scss";
+
+
+/* Estilos comunes a todas las páginas */
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box; 
+}
+
+/* header */
+.header{
+    //sobrescribo propiedad de bootstrap
+    --bs-gutter-x: 0 !important;
+    background-color: $header-color;    
+    align-items: center;
+    &__div{
+        text-align: center;
+        &-logo{
+            width: 88px;
+            height: 88px;
+        }
+        &-nav{            
+            display: none;
+        }
+        &-hamburger{
+            width: 18px;
+            height: 18px;
+        }
+        h1{            
+            display: none;
+        }
+    }
+    
+}
+
+/* Drawer */
+#drawerMenu{
+    background-color: $drawer-color;
+}
+.offcanvas{
+    &-body{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+    &-start{
+        width: 17rem;
+    }
+    &-header{
+        display: inline-block;
+        text-align: center;
+    }
+    &-backdrop.show {
+        opacity: 0.25;
+    }
+}
+
+.btnCloseDrawer{
+    color: #c4c4c473;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 800;
+}
+.drawerRedes{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    img{
+        width: 42px;
+        height: 42px;
+        margin: 0 0.2rem 0 0.2rem;
+    }
+}
+.drawerFooter{
+    text-align: center;
+    font-size: 11px;
+    color: #E5E5E5;
+}
+
+.nav{
+    justify-content: center;
+    &__menu{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        height: 200px;
+        align-items: center;
+        &-option{
+            color: #000000;    
+            width: 196px;
+            border-radius: 15px;
+            background-color: white;
+            text-align: center;
+            text-transform: uppercase;
+            font-size: 18px;
+            text-decoration: none; 
+            padding: 13.5px 0 13.5px 0;
+            margin-bottom: 1.8rem;
+        }
+    }
+}
+
+/* body */
+body{
+    animation-duration: 2s;
+    animation-name: AnimacionAparecer;
+    font-family: Lato;
+    font-weight: 400;
+    //el javascript del drawer le agrega un padding-right: 13px al body, con el !important fuerzo ese valor a 0
+    padding: 0px !important;
+}
+
+/* footer */
+.footer{  
+    display: flex;
+    justify-content: space-evenly;  
+    background-color: $footer-color;
+    height: 5rem;
+    &__div{
+        display: flex;
+        height: 100%;
+        flex-direction: column;
+        justify-content: space-evenly;
+        &-info{
+            color: #9E9595;
+            text-align: center;
+            font-size: 10px;
+            &-md{
+                display: none;
+            }
+        }
+        &-copyright{
+            display: none;
+        }
+        &-rrss{
+            display: none;
+        }
+    }    
+}
+
+/* Titulo */
+.div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 10px 10px 25px 10px;
+    &__title{                
+        height: 50px;
+        width: 350px;        
+        &-bold{            
+            margin-bottom: 0;
+            font-size: 18px;
+            font-weight: bold;
+        }    
+    }
+    &__item{        
+        height: 145px;
+        width: 330px;
+        &-title{     
+            padding: 10px;       
+            &-bold{
+                font-size: 14px;
+                font-weight: 800;
+            }            
+        }        
+    }
+    &__subtitle{             
+        width: 95%;
+        &-medium{
+            margin-bottom: 0;
+            font-size: 18px;
+        }       
+    }
+}
+
+.cajaSombreada{
+    width: 98%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+    align-items: center;
+    padding: 20px;
+    &-light{        
+        box-shadow: 0px 3px 20px rgba(0, 0, 0, 0.15);
+        border-radius: 10px;        
+    }
+    &-dark{        
+        box-shadow: 0px 3px 20px rgba(255, 255, 255, 0.15);
+        border-radius: 10px;        
+    }   
+}
+.subrayado{
+    &-guiones{        
+        border-bottom: 1px dashed $light-color;
+    }
+}
+
+.dark{
+    background-color: $dark-color;
+    color: $light-color;
+}
+
+.light{
+    background-color: $light-color;
+    color: $dark-color;
+}
+
+/* Responsive Desktop de todos los elementos comunes a todas las páginas */
+@media only screen and (min-width: 768px) {  
+    .header{            
+        padding-top: 8px;          
+        &__div{
+            display: grid;
+            grid-template-areas: "logo menu"
+                                "logo menu"
+                                "titulo titulo";
+            grid-template-rows: 1fr;
+            grid-template-columns: 1fr 6fr;
+            text-align: left;
+            padding-left: 20px;
+            &-logo{
+                grid-area: logo;
+                width: 88px;
+                height: 88px;
+            }
+            &-nav{
+                grid-area: menu;
+                display: flex;
+                justify-content: end;   
+                align-items: center;
+                width: 100%;    
+                &-menu{
+                    display: flex;
+                    text-align: center;
+                    margin: 0px 8px 0px 8px;
+                    &-option{
+                        margin: 0px 5px 0px 5px;
+                        padding-top: 3px;
+                        display: inline-block;
+                        text-decoration: none;
+                        font-size: 18px;
+                        color: $dark-color;
+                        width: 165px;
+                        height: 35px;
+                        background: $light-color;
+                        border-radius: 10px;                        
+                    }
+                    &-selected{
+                        padding-top: 2px;
+                        background: $dark-color;
+                        border: 2px solid $light-color;
+                        color: $light-color;
+                    }
+                }         
+            } 
+            &-hamburger{
+                display: none;
+            }            
+            h1{
+                grid-area: titulo;
+                display: block;
+                font-size: 16px;
+                padding-left: 12px;
+                font-weight: bolder;
+                color: $light-color;
+                animation-duration: 2s;
+                animation-name: tituloAparecer;
+            }
+        }   
+    }
+
+    /*Animación en aparecer*/
+    @keyframes tituloAparecer {
+        0% {
+          opacity: 0; }
+        100% {
+          opacity: 1; } 
+    }
+
+   /* footer */
+    .footer{
+        justify-content: space-between;
+        padding: 0 20px 0 20px;          
+        &__div{            
+            &-info{                                
+                margin: 0 10px 0 10px;
+                &-md{
+                    display: inline-block;                    
+                }
+                &-sm{
+                    display: none;
+                }
+                h6{
+                    margin-bottom: 0;
+                }
+            }
+            &-copyright{
+                display: inline-block;
+            }
+            &-rrss{
+                display: flex;
+                align-items: center;        
+                img{
+                    width: 30px;
+                    height: 30px;
+                }
+            }
+        }    
+    }
+
+
+
+
+
+}

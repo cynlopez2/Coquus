@@ -1,0 +1,189 @@
+@import "./variables.scss";
+
+/* Carrusel */
+.carousel{
+    height: 341px;
+    &-inner {
+        height: 100%;
+    }
+    &-item{
+        height: 100%;
+        &-sm{
+            display: inline-block;
+            width: 100%;
+            img{
+                width: inherit;
+            }
+        }
+        &-md{
+            display: none;
+        }
+    }
+    &-caption{
+        left:0;
+        right: 0;
+        width: 100%;
+        background-color: rgba(255,255,255,0.7);
+    }
+    &-indicators [data-bs-target]{
+        width: 19px;
+        height: 4px;       
+    }
+    &-indicators{
+        &-button{
+            border-radius: 10px;
+            //utilizo !important para sobrescribir propiedades de bootstrap
+            border: 1px !important;
+            margin: 10px 1px 10px 1px !important;
+        } 
+    }
+     
+}
+
+/* Sección de productos */
+.producto{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    &__titulo{
+        display: none;
+    }
+    &__item{
+        display: flex;
+        justify-content: space-evenly;
+        &__imagen{
+            &-centrada{
+                width: 161px;
+                height: 161px;
+                margin: 12px;
+            }
+        }
+        &__texto{
+            font-size: 11px;
+            margin: 12px;
+            .subtitulo{
+                font-weight: bold;
+                text-align: center;
+                display: block;
+            }
+            ul li{
+                margin: -3px 0 -3px 0;
+            }
+        }
+    }    
+}
+
+/* Sección de Servicios */
+.servicios{
+    display: flex;
+    justify-content: space-evenly;
+    border: 1px solid $dark-color;
+    &__item{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        &__icon{
+            display: none;
+        }
+        font-size: 12px;
+        padding: 20px 0 20px 0;
+    }
+}
+
+/* Responsive Desktop exclusivo del home (index.html) */
+@media only screen and (min-width: 768px) {
+    .carousel{       
+        height: 500px;
+        &-item{
+            &-sm{
+                display: none;
+            }
+            &-md{
+                display: flex;
+                justify-content: center;
+                margin: 40px 100px 40px 100px;
+                .cajaSombreada{
+                    justify-content: space-between;
+                    width: 90%;
+                    padding: 30px 80px 30px 80px;
+                }
+                img{
+                    border-radius: 20px;
+                }
+            }
+            &-subitem{
+                text-align: center;
+                &-imagenes{
+                    img{
+                        width: 120px;
+                        border-radius: 0px;
+                    }
+                }
+            }
+        }
+        &-indicators{
+            margin-right: 0;
+            margin-bottom: 8rem;
+            margin-left: 37.8%;
+        }
+    }
+
+    /* Sección de productos */
+    .producto{
+        &__titulo{
+            display: block;
+            border-radius: 10px;
+            background-color: $dark-color;
+            padding: 5px;
+            color: $light-color;
+            text-align: center;
+            width: 50%;
+            h2{
+                margin-bottom: 0;
+                font-size: 18px;
+            }     
+        }
+        &__item{
+            width: 50%;
+            &__texto{
+                .subtitulo{
+                    display: none;
+                }
+            }
+            &__imagen{
+                
+                    width: 260px;
+                    height: 150px;
+                    border-radius: 10px;
+                    overflow: hidden;
+                    margin: 15px;
+                    img{                        
+                        margin: 0;
+                        height: 290px;
+                        width: 290px;
+                        position: relative;
+                        bottom: 35%;
+                        right: 10%
+                    }
+                
+                
+            }
+        }    
+    }
+
+    /* Sección de Servicios */
+    .servicios{
+        margin: 20px 0 20px 0;
+        &__item{            
+            &__icon{
+                display: block;
+                img{
+                    height: 60px;
+                }
+            }
+        }
+    }
+}
+
+

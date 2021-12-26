@@ -1,0 +1,170 @@
+@import "./variables.scss";
+
+/* Contacto */
+.form{
+    width: 80%;
+    height: 250px;
+    padding: 10px 15px 10px 15px;
+    margin: 20px 0 20px 0;
+    &__input{
+        display: flex;
+        flex-direction: column;
+        font-size: 13px;
+        &-dark{   
+            background: #E5E5E5;        
+            border: 1px solid #000000;
+            box-sizing: border-box;
+            border-radius: 8px;
+            height: 40px;
+            padding: 20px;
+            margin: 2px;
+            width: 100%;
+        }
+    }
+    &__button{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        margin: 10px;
+        &-btn{
+            width: 140px;
+            height: 35px;            
+            box-sizing: border-box;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 14px;
+            &-secundario{
+                background: #E5E5E5;
+                border: 1px solid #000000;
+            }
+            &-principal{
+                background: #524E4E;
+                border: 1px solid #827575;
+                color: #FFFFFF;
+                
+            }
+        }
+    }
+}
+.checklist{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 80%;
+    padding: 20px 25px 20px 25px;
+    &__item{
+        font-size: 14px;
+        display: block;
+        position: relative;
+        padding-left: 25px;
+        margin-bottom: 10px;
+        cursor: pointer;    
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        &-checkmark {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 14px;
+            height: 14px;
+            background-color: rgba(0,0,0,0);
+            border: 1px solid #E5E5E5;
+            margin-top: 4px;
+        }
+        &-checkmark:after {
+            content: "";
+            position: absolute;
+            display: none;
+        }
+        &-checkmark:after {
+            left: 3px;
+            top: -1px;  
+            width: 6px;
+            height: 10px;
+            border: solid #E5E5E5;
+            border-width: 0 2px 2px 0;
+            -webkit-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+        }
+        input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            height: 0;
+            width: 0;
+        }
+        input:checked ~ .checklist__item-checkmark {
+            background-color: rgba(0,0,0,0);
+        }
+        input:checked ~ .checklist__item-checkmark:after {
+            display: block;
+        }
+    }
+}
+
+.div{
+    &__datos{
+        width: 100%;
+        &__contacto{
+            display: flex;
+            width: 100%;
+            justify-content: start;
+            padding: 2px;
+            font-size: 14px;
+            &-medium{
+                padding: 0 5px 0 5px;
+            }
+            &-bold{
+                padding: 0 5px 0 5px;
+                font-weight: bold;
+            }
+        }
+    }        
+}
+
+/* Modal - Sobreescritura de clase de Bootstrap */
+.modal {
+    &-content{
+    border-radius: 40px; 
+    }
+    &-header {
+        padding-right: 3rem; 
+    }
+    &-body {
+        padding-left: 3rem; 
+        color: $dark-color;
+    }
+    &-footer {
+        justify-content: center; 
+    }
+}
+
+.btnOK {
+    width: 8rem;
+    background-color:$dark-color;
+    color: $light-color;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 14px;
+}
+.mapa{
+    display: none;
+}
+
+@media only screen and (min-width: 768px) 
+{
+    .mapa{
+        display: block;
+        text-align: center;
+    }
+    .div{
+        &__datos{
+            width: 80%; 
+        }
+    }      
+}
+
+
